@@ -1,0 +1,125 @@
+\documentclass[11pt]{beamer}
+\usepackage[english]{babel}    % faire du français
+\usepackage[T1]{fontenc}        % accents dans le DVI
+\usepackage[utf8]{inputenc}   % accents dans le source
+\usepackage{graphicx}
+\usepackage{amssymb}
+\usepackage{mathtools}
+\usepackage{color, colortbl}
+
+\usepackage{libertine}
+\renewcommand*\familydefault{\sfdefault}  %% Only if the base font of the document is to be sans serif
+
+\setbeamersize{text margin left=10pt,text margin right=10pt}
+\setbeamertemplate{navigation symbols}{}
+
+\pgfdeclareimage[height=\textheight,width=\textwidth]{bkg}{frontAgaetis}
+\setbeamertemplate{background}{\pgfuseimage{bkg}}
+
+\setbeamercolor{frametitle}{fg=orange}
+\setbeamercolor{itemize item}{fg=orange}
+\setbeamertemplate{itemize item}[circle]
+\setbeamercolor{itemize subitem}{fg=orange}
+\setbeamertemplate{itemize subitem}[triangle]
+\setbeamercolor{enumerate item}{fg=orange}
+\setbeamercolor{enumerate subitem}{fg=orange}
+
+\usefonttheme[onlymath]{serif}
+
+\definecolor{paleOrange}{RGB}{255,204,153}
+\definecolor{forestGreen}{RGB}{0,204,0}
+\definecolor{veryPaleOrange}{RGB}{255,229,204}
+\setbeamertemplate{blocks}[rounded][shadow=true]
+\beamerboxesdeclarecolorscheme{suppervise}{orange}{paleOrange}
+
+\newcommand{\tabitem}{~~\llap{\textbullet}~~}
+
+\author{\textcolor{black}{Introduction à l'apprentissage automatique} \hfill \textcolor{orange}{Léo Beaucourt} \hfill \textcolor{black}{SIGMA - Agaetis}}
+\setbeamertemplate{footline}
+{                  
+  \leavevmode%
+  \hbox{\begin{beamercolorbox}[wd=.85\paperwidth,ht=2.5ex,dp=1.125ex,leftskip=.3cm plus1fill,rightskip=.3cm]{author in head/foot}%
+      \insertauthor
+  \end{beamercolorbox}}%
+  \hbox{\begin{beamercolorbox}[wd=.05\paperwidth,ht=2.5ex,dp=1.125ex,leftskip=.3cm plus1fill,rightskip=.3cm]{author in head/foot}%
+      \textcolor{orange}{\insertframenumber/\inserttotalframenumber}
+  \end{beamercolorbox}}%
+  \vskip0pt%
+}
+
+\begin{document}
+
+\begin{frame}
+
+  \vspace{5cm}
+  \begin{center}
+    \Large
+    \textcolor{orange}{Introduction à l'apprentissage automatique}\\
+    \normalsize
+    \vspace{0.5cm}
+    Léo Beaucourt
+  \end{center}
+    
+\end{frame}
+
+\setbeamertemplate{background}{}
+
+\begin{frame}{Contenu du cours}
+  \begin{enumerate}
+  \item Intro: Qu'est ce que le \textit{Machine Learning}?
+  \item L'apprentissage supervisé
+    \begin{enumerate}
+    \item La régression linaire
+    \item La régression logistique
+    \item Les problèmes de biais et de variances
+    \item Les arbres de décisions
+%    \item Apprentissage supervisé, les bonnes pratiques
+    \end{enumerate}
+  \item L'apprentissage non supervisé
+    \begin{enumerate}
+    \item Les algorithmes de clustering
+    \item Analyse en composantes principales
+    \end{enumerate}
+  \item L'apprentissage profond
+    \begin{enumerate}
+    \item Les réseaux de neurones
+    \item Les bonnes pratiques
+    \item Les différentes architectures de NN
+    \end{enumerate}
+  \end{enumerate}
+\end{frame}
+
+\begin{frame}{À propos de ce cours}
+  \begin{itemize}
+  \item Introduction à l'apprentissage automatique (ou \textit{machine learning} en anglais)
+  \item En pratique: \textit{Python}, \textit{Jupyter}. Packages \textit{numpy} \textit{pandas}, \textit{matplotlib}, \textit{scikit-learn} et \textit{tensorflow}.
+  \item Pas de pré-requis mathématiques (à part les dérivées partielles, l'algébre linéaire, ...)
+  \item Largement inspiré de l'excellent (et complet!) cours de \textbf{\textcolor{orange}{Andrew Ng}} sur \href{https://www.coursera.org/learn/machine-learning}{\color{blue}{Coursera}}. 
+  \end{itemize}
+  
+  \vfill
+  \begin{center}
+    \large
+    \textcolor{orange}{Allez, on démarre en douceur!}
+  \end{center}
+\end{frame}
+
+\input{slides/1_intro.tex}
+\input{slides/2_supervise.tex}
+\input{slides/3_nonsupervise.tex}
+\input{slides/4_deepLearning.tex}
+
+\setbeamertemplate{background}{\pgfuseimage{bkg}}
+\begin{frame}
+  \begin{center}
+    \huge
+    \vspace{5cm}
+    \textbf{\textcolor{orange}{Merci!}}\\
+    \textbf{Des questions?}\\
+    \vspace{1cm}
+    \normalsize
+    \textit{Léo Beaucourt: lbeaucourt@agaetis.fr}
+  \end{center}
+\end{frame}
+
+\end{document}
