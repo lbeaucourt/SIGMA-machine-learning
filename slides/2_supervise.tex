@@ -10,24 +10,35 @@
   \end{itemize}
 \end{frame}
 
-\begin{frame}{2.1 La régression linéaire}
+\begin{frame}{2.1 La regression linéaire}
   \begin{itemize}
-  \item Mais... À quoi ça sert en vrai?
+    
+  \item Déterminer une relation \textit{linéaire} entre \textit{input(s)} (features) et \textit{output}:
+    \begin{center}
+      \normalsize
+      \boldmath $\Rightarrow$ \unboldmath \textbf{\textcolor{orange}{Apprentissage Supervisé}}
+    \end{center}
+  \item Prédiction d'une valeur \textbf{continue} (e.g. non discrète, non catégorielle)
+  \item Applications:
     \begin{itemize}
-    \item Prédiction d'une valeur en fonction de paramètres (prix de quelque chose)
-    \item Très utilisé en science (physiques des particules, sciences sociales) pour mettre en évidence des relations entre des variables ou ajuster un modèle
-    \item Dans le domaine médicales: les études épidémiologique
-    \item Dans la finance: prédictions des tendances, \textit{Capital Asset Pricing Model}
+      \normalsize
+    \item Recherche de corrélations
+    \item En science, modélisation de phénomènes (physiques, biologiques, ...) après mesures
+    \item Dans le domaine médical: les études épidémiologique
+    \item Dans la finance/économie: prédictions des tendances, \textit{Capital Asset Pricing Model}
     \item $\dots$
     \end{itemize}
   \end{itemize}
+  \begin{center}
+    \textbf{Sujet Data Science} \boldmath $\Rightarrow$ \unboldmath \textbf{Premier algorithme à tester!}
+  \end{center}
 \end{frame}
 
 \begin{frame}{2.1 Un exemple: le prix d'une carte graphique}
   \begin{itemize}
-  \item Ce prix va dépendre de la taille de la mémoire vive (GPU) de la carte (entre autre ...)
+  \item La propriété principale d'une carte Graphique: valeur de \textbf{GPU}
     \vspace{0.2cm}
-  \item On a un jeu de données, cad une liste de carte graphique dont on connait le couple $\{GPU;prix\}$:
+  \item On a un jeu de données, cad une liste de carte graphiques dont on connait le couple $\{GPU;prix\}$:
   \end{itemize}
 
   \begin{figure}
@@ -37,9 +48,9 @@
 
 \begin{frame}{2.1 Construire un modèle (regression linéaire)}
   \begin{itemize}
-  \item Appelons $x_{1}$ la taille de la mémoire vive de nos $m$ carte graphiques, et $y$ le prix correspondant.
+  \item Soit: $x_{1}$ la valeur de GPU de nos $m$ carte graphiques, et $y$ leur prix
     \vspace{0.2cm}
-  \item On cherche à trouver le modèle qui permet de prédire un prix $\hat{y}$ à partir $x_{1}$:
+  \item On cherche à déterminer le modèle pour prédire un prix $\hat{y}$ à partir $x_{1}$:
     \begin{equation*}
       \hat{y} = h_{\theta}(x_{1})
     \end{equation*}
@@ -67,15 +78,11 @@
 
 \begin{frame}{2.1 La fonction de coût}
   \begin{itemize}
-  \item Comment estimer la \textit{véracité} de notre modèle?
-    \begin{itemize}
-    \item La \textbf{Fonction de coût}: $J(\theta)$
-      \vspace{0.15cm}
-    \item Une définition possible: somme quadratique des erreurs
+  \item  $J(\theta)$: \textit{véracité} de notre modèle
+  \item Une définition possible: somme quadratique des erreurs
       \begin{equation*}
         J(\theta) = \frac{1}{2m} \displaystyle\sum_{i=0}^{m}(\hat{y}^{(i)} - y^{(i)})^{2}
       \end{equation*}
-    \end{itemize}
   \end{itemize}
   \vspace{-0.5cm}
   \begin{figure}
@@ -101,14 +108,14 @@
 
 \begin{frame}{2.1 La descente de gradient}
   \begin{itemize}
-  \item C'est l'algorithme qui va nous permettre d'arriver ``\textit{rapidement}'' au minimum de $J(\theta)$ 
+  \item Algorithme pour arriver ``\textit{rapidement}'' au minimum de $J(\theta)$ 
     \vspace{0.2cm}
   \item On va utiliser la \textit{dérivation}: $\frac{d}{d\theta_{1}}J(\theta)$:
-    \begin{itemize}
-    \item Si $J(\theta)$ est croissant: $\frac{d}{d\theta_{1}}J(\theta) > 0$
-    \item Si $J(\theta)$ est décroissant: $\frac{d}{d\theta_{1}}J(\theta) < 0$
-    \end{itemize}
   \end{itemize}
+  \begin{center}
+    Si $J(\theta)$ est croissant: $\frac{d}{d\theta_{1}}J(\theta) > 0$, \hspace{0.5cm}
+    Si $J(\theta)$ est décroissant: $\frac{d}{d\theta_{1}}J(\theta) < 0$
+  \end{center}
   \vspace{-0.5cm}
   \begin{figure}
     \includegraphics[width=0.7\textwidth]{fig/derivation.png}
@@ -116,7 +123,7 @@
   \vspace{-0.5cm}
 \end{frame}
 
-
+  
 \begin{frame}{2.1 La descente de gradient}
   \begin{itemize}
   \item (Encore) un peu de math, la descente de gradient s'écrit:
@@ -127,12 +134,12 @@
       \begin{matrix} \text{Répéter jusqu'à convergence:} & \{ & \\ & & \theta_{1} := \theta_{1} - \alpha \frac{d}{d\theta_{1}}J(\theta) \\ & \} & \end{matrix}
     \end{equation*}
     \vspace{-0.2cm}
-  \end{beamerboxesrounded}
-  \begin{itemize}
-  \item $\alpha$ s'appelle le taux d'apprentissage (\textit{learning rate}) et c'est le \textbf{seul} paramètre de l'algorithme.
-    \vspace{0.2cm}
-  \item On va itérativement modifier la valeur de $\theta_{1}$ en fonction de la dérivée de $J(\theta)$, jusqu'à minimiser $J(\theta)$ (\textit{convergence}).
-  \end{itemize}
+    \end{beamerboxesrounded}
+    \begin{itemize}
+    \item $\alpha$ s'appelle le taux d'apprentissage (\textit{learning rate}) et c'est le \textbf{seul} paramètre de l'algorithme.
+      \vspace{0.2cm}
+    \item On va itérativement modifier la valeur de $\theta_{1}$ en fonction de la dérivée de $J(\theta)$, jusqu'à minimiser $J(\theta)$ (\textit{convergence}).
+    \end{itemize}
 \end{frame}
 
 \begin{frame}{2.1 La descente de gradient}
@@ -143,14 +150,31 @@
     J(\theta) = \frac{1}{2m} \displaystyle\sum_{i=0}^{m}(\hat{y}^{(i)} - y^{(i)})^{2} = \frac{1}{2m} \displaystyle\sum_{i=0}^{m}(\theta_{1}x_{1}^{(i)} - y^{(i)})^{2}
   \end{equation*}
   \begin{equation*}
-    \frac{d}{d\theta_{1}}J(\theta) = \frac{1}{m}\displaystyle\sum_{i=0}^{m}(\hat{y}^{(i)} - y^{(i)}) x_{1}^{(i)}
+      \frac{d}{d\theta_{1}}J(\theta) = \frac{1}{m}\displaystyle\sum_{i=0}^{m}(\hat{y}^{(i)} - y^{(i)}) x_{1}^{(i)}
   \end{equation*}
   \begin{itemize}
   \item Un peu de \textit{hand-tunning}:
     \begin{itemize}
-    \item Le learning rate ($\alpha$) est fixé à $0.00000003$
-    \item Défissons une précision $\epsilon = 0.001$ qui nous servira a arrêter la descente de gradient 
+      \normalsize
+    \item Le learning rate ($\alpha$) est fixé à $0.03$ ($0.045$ pour la démo)
+    \item Définissons une précision $\epsilon = 0.0001$ qui nous servira à arrêter la descente de gradient 
     \end{itemize}
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{2.1 Préparation du dataset}
+  \begin{itemize}
+  \item Bonne pratique de ML, pour tout les algos!
+  \item On sépare \textbf{aléatoirement} les données en 2 (3) échantillons:
+    \begin{itemize}
+      \normalsize
+    \item Entraînement / (Validation) / Test
+    \item \textit{80 / 20} (\textit{70 / 30}) ou \textit{60 / 20 / 20}
+    \end{itemize}
+    \vspace{0.2cm}
+  \item \textit{Entraînement:} utilisé pour la descente de gradient
+  \item \textit{Validation:} utilisé pour l'hyperparamètrage de l'algo
+  \item \textit{Test:} utilisé pour mesurer la performance du modèle
   \end{itemize}
 \end{frame}
 
@@ -159,15 +183,18 @@
     \includegraphics[width=\textwidth]{fig/gradDescent.png}
   \end{figure}
   \begin{itemize}
-  \item La descente de gradient c'est achevée au bout d'une dizaine d'itérations
-  \item La valeur de notre paramètre $\theta_{1}$ est $0.0706$
+  \item La descente de gradient c'est achevée au bout de quelques itérations
   \item On peut voir que $J(\theta)$ a continuellement diminué à chaque itération
   \end{itemize}
+  \begin{center}
+    $\theta_{1} ~ \approx ~ 80$ \\
+    $err_{train} ~ \approx ~ err_{test}$
+  \end{center}
 \end{frame}
 
 \begin{frame}{2.1 On peut maintenant faire une prédiction}
   \begin{itemize}
-  \item Quel serait le prix d'une carte avec 4608 et 13516 Mo de GPU? (ce qui n'a pas de sens, on est d'accord)
+  \item Quel serait le prix de cartes avec 5, 10 et 14 Go de GPU? 
   \end{itemize}
   \vspace{-0.2cm}
   \begin{figure}
@@ -175,8 +202,8 @@
   \end{figure}
   \vspace{-0.5cm}
   \begin{itemize}
-  \item On pourra les vendre autour de 325.10 et 953.62 euros !
-  \end{itemize}
+  \item On pourra les vendre autour de 400, 800 et 1100 euros!
+  \end{itemize} 
 \end{frame}
 
 \begin{frame}{2.1 Le choix du taux d'apprentissage}
@@ -246,6 +273,47 @@
     \includegraphics[width=0.45\textwidth]{fig/multiVarCostFct.png}\\
     \includegraphics[width=0.75\textwidth]{fig/multiVarDesc.png}
   \end{figure}
+\end{frame}
+
+\begin{frame}{2.1 Affinons notre modèle de carte graphiques}
+  \begin{itemize}
+  \item Plus de features: chipset, fréquence, consommation, ...
+  \item Il va falloir explorer et nettoyer les données:
+    \begin{itemize}
+      \normalsize
+    \item Gestion des données manquantes / abbérantes
+    \item \textit{Features engineering}
+    \item Normaliser le dataset (pour accélérer la descente de gradient)
+    \end{itemize}
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{2.1 Régression linéaire multivariables: Résultats}
+  \begin{itemize}
+  \item On utilise la même valeur de $\epsilon = 0.0001$ et $\alpha = 0.03$
+  \item Plus long! Mais meilleur résultats:
+  \item Modèle simple: $err ~ \approx ~ 100$
+  \item Modèle multivariable: $err ~ \approx ~ 30$
+  \end{itemize}
+  \begin{figure}
+    \includegraphics[width=0.45\textwidth]{fig/multiVarDesc.png}\\
+  \end{figure}
+\end{frame}
+  
+\begin{frame}{2.1 Pour conclure sur la régression linéaire}
+  \begin{itemize}
+  \item \textbf{Regression Linéaire:} $\hat{y}$ est une valeur \textit{continue}
+    \begin{itemize}
+    \item Valeur discrète: \textbf{Regression Logistique} (\textit{classification})
+    \end{itemize}
+    \vspace{0.2cm}
+  \item Le résultat $\hat{y}$ dépend \textbf{linéairement} des variables $x_{i}$ si:
+    \begin{equation*}
+      \hat{y} = \theta_{1}x_{1} + \dots + \theta_{n}x_{n} = \displaystyle\sum_{i=1}^{n} \theta_{i} x_{i}
+    \end{equation*}
+  \item \textbf{Apprentissage supervisé}: $y$ est connu pour chaque $x_{1}$ dans le jeu de données d'entrainement
+  \item Facile à implémenter (encore plus avec Scikit-learn ...), rapide: bon point de départ sur un sujet
+  \end{itemize}
 \end{frame}
 
 \begin{frame}{2.1 Features scaling}
