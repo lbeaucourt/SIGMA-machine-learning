@@ -23,9 +23,9 @@
     \begin{itemize}
       \normalsize
     \item Recherche de corrélations
-    \item En science, modélisation de phénomènes (physiques, biologiques, ...) après mesures
+    \item En science, modélisation de phénomènes (physiques, biologiques, ...)
     \item Dans le domaine médical: les études épidémiologique
-    \item Dans la finance/économie: prédictions des tendances, \textit{Capital Asset Pricing Model}
+    \item Dans la finance/économie: prédictions des tendances
     \item $\dots$
     \end{itemize}
   \end{itemize}
@@ -38,11 +38,11 @@
   \begin{itemize}
   \item La propriété principale d'une carte Graphique: valeur de \textbf{GPU}
     \vspace{0.2cm}
-  \item On a un jeu de données, cad une liste de carte graphiques dont on connait le couple $\{GPU;prix\}$:
+  \item Données, liste de carte graphiques dont on connait le couple $\{GPU;prix\}$:
   \end{itemize}
 
   \begin{figure}
-    \includegraphics[width=0.8\textwidth]{fig/gpuPrices.png}    
+    \includegraphics[width=0.6\textwidth]{fig/gpuPrices.png}    
   \end{figure}
 \end{frame}
 
@@ -68,7 +68,7 @@
   \end{itemize}
   \vspace{-0.5cm}
   \begin{figure}
-    \includegraphics[width=0.8\textwidth]{fig/model.png}
+    \includegraphics[width=0.6\textwidth]{fig/model.png}
   \end{figure}
   \vspace{-0.5cm}
   \begin{itemize}
@@ -79,14 +79,10 @@
 \begin{frame}{2.1 La fonction de coût}
   \begin{itemize}
   \item  $J(\theta)$: \textit{véracité} de notre modèle
-  \item Une définition possible: somme quadratique des erreurs
-      \begin{equation*}
-        J(\theta) = \frac{1}{2m} \displaystyle\sum_{i=0}^{m}(\hat{y}^{(i)} - y^{(i)})^{2}
-      \end{equation*}
+  \item Ex, somme quadratique des erreurs: $J(\theta) = \frac{1}{2m} \displaystyle\sum_{i=0}^{m}(\hat{y}^{(i)} - y^{(i)})^{2}$
   \end{itemize}
-  \vspace{-0.5cm}
   \begin{figure}
-    \includegraphics[width=0.8\textwidth]{fig/modelEstimation.png}
+    \includegraphics[width=0.6\textwidth]{fig/modelEstimation.png}
   \end{figure}  
 \end{frame}
 
@@ -98,7 +94,7 @@
   \end{itemize}
   \vspace{-0.5cm}
   \begin{figure}
-    \includegraphics[width=0.8\textwidth]{fig/costFct.png}
+    \includegraphics[width=0.6\textwidth]{fig/costFct.png}
   \end{figure}
   \vspace{-0.5cm}
   \begin{itemize}
@@ -118,7 +114,7 @@
   \end{center}
   \vspace{-0.5cm}
   \begin{figure}
-    \includegraphics[width=0.7\textwidth]{fig/derivation.png}
+    \includegraphics[width=0.5\textwidth]{fig/derivation.png}
   \end{figure}
   \vspace{-0.5cm}
 \end{frame}
@@ -136,7 +132,7 @@
     \vspace{-0.2cm}
     \end{beamerboxesrounded}
     \begin{itemize}
-    \item $\alpha$ s'appelle le taux d'apprentissage (\textit{learning rate}) et c'est le \textbf{seul} paramètre de l'algorithme.
+    \item $\alpha$: taux d'apprentissage (\textit{learning rate}), \textbf{seul} paramètre de l'algorithme.
       \vspace{0.2cm}
     \item On va itérativement modifier la valeur de $\theta_{1}$ en fonction de la dérivée de $J(\theta)$, jusqu'à minimiser $J(\theta)$ (\textit{convergence}).
     \end{itemize}
@@ -157,7 +153,7 @@
     \begin{itemize}
       \normalsize
     \item Le learning rate ($\alpha$) est fixé à $0.03$ ($0.045$ pour la démo)
-    \item Définissons une précision $\epsilon = 0.0001$ qui nous servira à arrêter la descente de gradient 
+    \item Précision $\epsilon = 0.0001$ pour arrêter la descente de gradient 
     \end{itemize}
   \end{itemize}
 \end{frame}
@@ -198,7 +194,7 @@
   \end{itemize}
   \vspace{-0.2cm}
   \begin{figure}
-    \includegraphics[width=0.8\textwidth]{fig/pred.png}
+    \includegraphics[width=0.6\textwidth]{fig/pred.png}
   \end{figure}
   \vspace{-0.5cm}
   \begin{itemize}
@@ -208,15 +204,9 @@
 
 \begin{frame}{2.1 Le choix du taux d'apprentissage}
   \begin{itemize}
-  \item \textbf{\textcolor{orange}{Learning Rate} Très important:}
-    \begin{itemize}
-      \normalsize
-    \item \boldmath $\alpha$ \textbf{Trop grand:} la descente de gradient diverge
-    \item \boldmath $\alpha$ \textbf{Trop petit:} la descente de gradient est très longue
-    \end{itemize}
-  \item Pour choisir, on regarde l'évolution de la fonction de coût $J(\theta)$ en fonction du nombre d'itérations:
+  \item \boldmath $\alpha$ \textbf{Trop grand:} la descente de gradient diverge
+  \item \boldmath $\alpha$ \textbf{Trop petit:} la descente de gradient est très longue
   \end{itemize}
-  \vspace{-0.5cm}
   \begin{figure}
     \includegraphics[width=0.9\textwidth]{fig/learningRateChoice.png}
   \end{figure}
@@ -224,8 +214,8 @@
 
 \begin{frame}{2.1 Un mot sur la regression linéaire multivariables}
   \begin{itemize}
-  \item Ici, nous avons vu le cas avec une seule variable $x_{1}$ (on aurait pu rajouter un biais $\theta_{0}$, cad un terme constant: $\hat{y} = \theta_{0} + \theta_{1}x_{1}$)
-  \item Le principe est le même, mais avec plusieurs variables $x_{i}$ (donc plusieurs paramètres $\theta_{i}$)
+  \item Même principe, mais avec plusieurs variables $x_{i}$ (donc plusieurs paramètres $\theta_{i}$)
+  \item on peut rajouter un biais $\theta_{0}$, cad un terme constant: $\hat{y} = \theta_{0} + \theta_{1}x_{1} + \dots$
   \item Notre fonction hypothèse s'écrie alors:
   \end{itemize}
   \begin{equation*}
@@ -269,9 +259,9 @@
   \item Pour illustrer: régression linéaire à deux dimensions
   \end{itemize}
   \begin{figure}
-    \includegraphics[width=0.45\textwidth]{fig/multiVarData.png}
-    \includegraphics[width=0.45\textwidth]{fig/multiVarCostFct.png}\\
-    \includegraphics[width=0.75\textwidth]{fig/multiVarDesc.png}
+    \includegraphics[width=0.4\textwidth]{fig/multiVarData.png}
+    \includegraphics[width=0.4\textwidth]{fig/multiVarCostFct.png}\\
+    \includegraphics[width=0.45\textwidth]{fig/multiVarDesc.png}
   \end{figure}
 \end{frame}
 
@@ -304,6 +294,7 @@
   \begin{itemize}
   \item \textbf{Regression Linéaire:} $\hat{y}$ est une valeur \textit{continue}
     \begin{itemize}
+      \normalsize
     \item Valeur discrète: \textbf{Regression Logistique} (\textit{classification})
     \end{itemize}
     \vspace{0.2cm}
@@ -311,14 +302,17 @@
     \begin{equation*}
       \hat{y} = \theta_{1}x_{1} + \dots + \theta_{n}x_{n} = \displaystyle\sum_{i=1}^{n} \theta_{i} x_{i}
     \end{equation*}
-  \item \textbf{Apprentissage supervisé}: $y$ est connu pour chaque $x_{1}$ dans le jeu de données d'entrainement
-  \item Facile à implémenter (encore plus avec Scikit-learn ...), rapide: bon point de départ sur un sujet
+  \item \textbf{Supervisé}: $y$ connu pour chaque élément du le jeu de données d'entrainement
+  \item Facile à implémenter (encore plus avec Scikit-learn ...), rapide: 
   \end{itemize}
+  \begin{center}
+    $\Rightarrow$ bon point de départ sur un sujet
+  \end{center}
 \end{frame}
 
 \begin{frame}{2.1 Features scaling}
   \begin{itemize}
-  \item Lorsque les variables n'ont pas la même échelle, la descente de gradient peut prendre beaucoup de temps
+  \item Mettre les variables à la même échelle (performances)
   \item Normaliser les variables: $-1 \leq x_{i} \leq 1$
   \end{itemize}
   \vspace{-0.2cm}
@@ -339,12 +333,8 @@
   \item En combinant les deux: \boldmath \textcolor{orange}{$x := \frac{x - x_{mean}}{x_{max} - x_{min}}$} $\Rightarrow$ \textcolor{orange}{$-1 \leq x \leq 1$} 
     \vspace{0.2cm}
     \footnotesize
-  \item\textbf{Remarque:} Il est possible de remplacer $x_{max} - x_{min}$ par l'écart type:
+  \item\textbf{Remarque:} Il est possible de remplacer $x_{max} - x_{min}$ par l'écart type: $\sigma_{x} = \sqrt{\frac{1}{n}\displaystyle\sum_{i=1}^{n}(x_{i} - \bar{x})^{2}}$
   \end{itemize}
-  \footnotesize
-  \begin{equation*}
-    \sigma_{x} = \sqrt{\frac{1}{n}\displaystyle\sum_{i=1}^{n}(x_{i} - \bar{x})^{2}}
-  \end{equation*}
 \end{frame}
 
 \begin{frame}{2.2 La régression logistique}
@@ -425,8 +415,8 @@
     \end{cases}
   \end{equation*}
   \begin{figure}
-    \includegraphics[width=.35\textwidth]{fig/logisticRegressionCostFunction1.png}
-    \includegraphics[width=.32\textwidth]{fig/logisticRegressionCostFunction2.png}
+    \includegraphics[width=.22\textwidth]{fig/logisticRegressionCostFunction1.png}
+    \includegraphics[width=.2\textwidth]{fig/logisticRegressionCostFunction2.png}
   \end{figure}
 \end{frame}
 
@@ -437,7 +427,7 @@
   \item On peut \textit{tricher} en utilisant la méthode \textit{'One-vs-all'}:
     \begin{itemize}
     \item On remplace le problème multiclasse par $n+1$ problèmes binaire
-    \item Probabilité que $y$ soit dans une classe, les autres sont regroupés dans une deuxième classe \textit{virtuelle}:
+    \item Probabilité que $y$ soit dans une classe ou qu'il soit dans une des autres:
     \end{itemize}
   \end{itemize}
   \begin{equation*}
@@ -529,7 +519,6 @@
   \begin{itemize}
   \item Ces algorithmes sont faciles à interpréter (et à visualiser)
   \item Tout les types de données (catégorielle, numérique, ...) peuvent être mélangés
-  \item Rapide et peu gourmand en ressource pour comprendre des structures de données complexes:
   \end{itemize}
   \begin{figure}
     \includegraphics[trim={0 0 0 40},clip,width=.3\textwidth]{fig/spiralDTresult.png}
@@ -554,9 +543,9 @@
     \begin{itemize}
       \normalsize
       \vspace{0.5cm}
-    \item \textbf{averaging}: plusieurs estimateurs (\textit{learners}) indépendant dont on moyenne les prédictions \\ (\textit{Random Forests}, $\dots$)
+    \item \textbf{averaging}: plusieurs estimateurs (\textit{learners}) indépendant dont on moyenne les prédictions (\textit{Random Forests}, $\dots$)
       \vspace{0.5cm}
-    \item \textbf{boosting}: plusieurs estimateurs combinés \\(\textit{AdaBoost}, \textit{XGBoost}, $\dots$)
+    \item \textbf{boosting}: plusieurs estimateurs combinés (\textit{AdaBoost}, \textit{XGBoost}, $\dots$)
     \end{itemize}
   \end{itemize}
 \end{frame}
@@ -584,26 +573,26 @@
   \end{itemize}
 \end{frame}
 
-\begin{frame}{2.4 Exemple d'algorithme de \textit{boosting}: \textbf{XGBoost}}
-  \begin{itemize}
-  \item Obtient d'excellent résultats sur la plupart des cas d'usages (classification et régression)
-  \item Des arbres sont générés aléatoirement comme pour les \textit{random forests}
-  \item Mais au lieu de moyenner les prédictions, on additionne les prédictions
-    \begin{itemize}
-    \item À chaque étape, des arbres sont générés et on sélectionne celui qui optimise la fonction d'objectif (une fonction de coût + une fonction qui mesure la complexité du modèle)
-    \item On additionne la prédiction de cet arbre à la prédiction du modèle et on recommence jusqu'à atteindre une performance suffisante
-    \end{itemize}
-  \end{itemize}
-  \begin{equation*}
-    \begin{matrix*}[l]
-      \hat{y_{i}}^{(0)} = 0 \\
-      \hat{y_{i}}^{(1)} = \hat{y_{i}}^{(0)} + f_{1}(x_{i}) = f_{1}(x_{i})\\
-      \hat{y_{i}}^{(2)} = \hat{y_{i}}^{(1)} + f_{2}(x_{i}) = f_{1}(x_{i}) + f_{2}(x_{i})\\
-      \dots\\
-      \hat{y_{i}}^{(t)} = \hat{y_{i}}^{(t-1)} + f_{t}(x_{i}) = \displaystyle\sum_{k=1}^{t} f_{k}(x_{i}) \\
-    \end{matrix*}
-  \end{equation*}
-\end{frame}
+%\begin{frame}{2.4 Exemple d'algorithme de \textit{boosting}: \textbf{XGBoost}}
+%  \begin{itemize}
+%  \item Obtient d'excellent résultats sur la plupart des cas d'usages (classification et régression)
+%  \item Des arbres sont générés aléatoirement comme pour les \textit{random forests}
+%  \item Mais au lieu de moyenner les prédictions, on additionne les prédictions
+%    \begin{itemize}
+%    \item À chaque étape, des arbres sont générés et on sélectionne celui qui optimise la fonction d'objectif (une fonction de coût + une fonction qui mesure la complexité du modèle)
+%    \item On additionne la prédiction de cet arbre à la prédiction du modèle et on recommence jusqu'à atteindre une performance suffisante
+%    \end{itemize}
+%  \end{itemize}
+%  \begin{equation*}
+%    \begin{matrix*}[l]
+%      \hat{y_{i}}^{(0)} = 0 \\
+%      \hat{y_{i}}^{(1)} = \hat{y_{i}}^{(0)} + f_{1}(x_{i}) = f_{1}(x_{i})\\
+%      \hat{y_{i}}^{(2)} = \hat{y_{i}}^{(1)} + f_{2}(x_{i}) = f_{1}(x_{i}) + f_{2}(x_{i})\\
+%      \dots\\
+%      \hat{y_{i}}^{(t)} = \hat{y_{i}}^{(t-1)} + f_{t}(x_{i}) = \displaystyle\sum_{k=1}^{t} f_{k}(x_{i}) \\
+%    \end{matrix*}
+%  \end{equation*}
+%\end{frame}
 
 \begin{frame}{2.4 Arbres de décision: \textit{Titanic}}
   \begin{figure}

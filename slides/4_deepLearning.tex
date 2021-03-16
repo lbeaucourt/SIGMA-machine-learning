@@ -3,8 +3,14 @@
   \item \textbf{Deep Learning} = \textit{Réseaux de Neurones} (avec plus d'une couche cachée)
   \item Conceptualisés dans les années 80 et début 90, l'explosion de la puissance de calcul disponibles a rendu possible leur exploitation
   \item \textbf{Qu'est ce que ça a à voir avec le cerveaux?} Pas grand chose en fait ... à part une analogie avec la structure des neurones
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{4. L'apprentissage profond}
+  \begin{itemize}
   \item Utilisé principalement dans le cadre de l'\textbf{apprentissage supervisé}
     \begin{itemize}
+      \normalsize
     \item Image classifiers, Object detection
     \item Speech recognition
     \item Machine traduction (\href{https://www.deepl.com/translator}{\color{blue}{DeepL}})
@@ -13,6 +19,7 @@
     \end{itemize}
   \item Données structurées/non-structurées:
     \begin{itemize}
+      \normalsize
     \item Les humains sont bons pour interpréter des données non-structurées
     \end{itemize}
   \end{itemize}
@@ -38,9 +45,8 @@
   \item $n^{[l]}$ cellules (neurones) pour la couche $l$, $m$ variables (input layer: $n^{[0]}$)
   \item $W^{[l]}, b^{[l]}$: paramètres de la couche $l$ ($W^{[l]} \in \mathbb{R}^{(n^{[l]} \times n^{[l-1]})}$, $b^{[l]} \in \mathbb{R}^{(n^{[l]} \times 1)}$)
   \end{itemize}
-  \vspace{-0.5cm}
   \begin{figure}
-    \includegraphics[width=0.9\textwidth]{fig/deepNN.png}
+    \includegraphics[width=0.6\textwidth]{fig/deepNN.png}
   \end{figure}
 \end{frame}
 
@@ -292,6 +298,7 @@
 
 \begin{frame}{4.2 Les bonnes pratiques: Que faire?}
   \begin{table}
+    \footnotesize
     \begin{tabular}{ccccl}
       \multicolumn{3}{l}{\textcolor{orange}{\textbf{$\bullet$ Haut Biais?}}} & \boldmath $\rightarrow$ \textbf{Oui} $\rightarrow$ \unboldmath & Réseau plus profond \\
       \multicolumn{3}{l}{(Performance entrainement)} & & Entrainer plus longtemps \\

@@ -19,21 +19,54 @@
   \end{itemize}
 \end{frame}
 
-\begin{frame}{3.1 K-means}
+\begin{frame}{K-Means: description et limites}
   \begin{itemize}
-  \item Sépare les données en $K$ clusters $C$ d'égale variance (dispersion)
-  \item Soit les \textit{centroïdes}, la moyenne des échantillons dans chaque cluster
-  \item \textit{K-means} modifie la position des \textit{centroïdes} jusqu'à trouver la valeur qui minimise l'écart moyens des échantillons vis-à-vis de son cluster correspondant
-  \item Critère de minimisation: \textbf{inertie}: $I = \displaystyle\sum_{k=0}^{K}\displaystyle\sum_{x \in C_{k}} || x - \mu_{k} ||^{2}$
-  \item La performance du \textit{K-means} est fortement dépendante de son initialisation \textit{(Solution: plusieurs initialisation $\rightarrow$ moyenne)}
-  \item Le \textit{K-means} ne fonctionne pas avec des variables catégorielles (il existe des adaptations). Il est préférable de normaliser les variables.
+  \item Sépare les données en $K$ clusters $C_{k}$ d'égale variance (dispersion)
+  \item L'algorithme modifie la position des \textit{centroïdes} $\mu_{k}$ afin de minimiser l'écart moyen de l'ensemble des points d'un cluster à son \textit{centroïde}
+  \end{itemize}
+  \vspace{-0.5cm}
+  \begin{minipage}{0.55\textwidth}
+    \begin{itemize}
+    \item Critère de minimisation, \textbf{Inertie:}
+    \end{itemize}
+    \begin{equation*}
+      I = \displaystyle\sum_{k=0}^{K}\displaystyle\sum_{x \in C_{k}}\|x-\mu_{k}\|^{2}
+    \end{equation*}
+    \begin{center}
+      \textbf{\textcolor{orange}{(Distance Euclidienne)}}
+    \end{center}
+  \end{minipage}
+  \hfill
+  \begin{minipage}{0.4\textwidth}
+    \animategraphics[autoplay,loop,width=0.8\textwidth]{5}{fig/gif/kmeanAnim-}{0}{12} %% Insert gif as png list
+  \end{minipage}
+  \vspace{-1cm}
+  \begin{itemize}
+  \item \textbf{\textcolor{orange}{Limitations:}}
+    \begin{itemize}
+      \normalsize
+    \item Le nombre de clusters se définit ``\textit{à la main}''
+    \item Le résultat est très dépendant de l'initialisation
+    \item Le \textbf{K-Means} ne fonctionne pas avec les variables catégorielles (non ordonnées)
+    \end{itemize}
   \end{itemize}
 \end{frame}
 
+%\begin{frame}{3.1 K-means}
+%  \begin{itemize}
+%  \item Sépare les données en $K$ clusters $C$ d'égale variance (dispersion)
+%  \item Soit les \textit{centroïdes}, la moyenne des échantillons dans chaque cluster
+%  \item \textit{K-means} modifie la position des \textit{centroïdes} jusqu'à trouver la valeur qui minimise l'écart moyens des échantillons vis-à-vis de son cluster correspondant
+%  \item Critère de minimisation: \textbf{inertie}: $I = \displaystyle\sum_{k=0}^{K}\displaystyle\sum_{x \in C_{k}} || x - \mu_{k} ||^{2}$
+%  \item La performance du \textit{K-means} est fortement dépendante de son initialisation \textit{(Solution: plusieurs initialisation $\rightarrow$ moyenne)}
+%  \item Le \textit{K-means} ne fonctionne pas avec des variables catégorielles (il existe des adaptations). Il est préférable de normaliser les variables.
+%  \end{itemize}
+%\end{frame}
+
 \begin{frame}{3.1 Clustering: Iris dataset, K-means result}
   \begin{figure}
-    \includegraphics[width=0.9\textwidth]{fig/clusteringTrue.png}
-    \includegraphics[width=0.9\textwidth]{fig/clusteringKmeans.png}
+    \includegraphics[width=0.7\textwidth]{fig/clusteringTrue.png}
+    \includegraphics[width=0.7\textwidth]{fig/clusteringKmeans.png}
   \end{figure}
 \end{frame}
 
@@ -51,8 +84,8 @@
 
 \begin{frame}{3.1 Clustering: Iris dataset, Mean Shift result}
   \begin{figure}
-    \includegraphics[width=0.9\textwidth]{fig/clusteringTrue.png}
-    \includegraphics[width=0.9\textwidth]{fig/clusteringMeanShift.png}
+    \includegraphics[width=0.7\textwidth]{fig/clusteringTrue.png}
+    \includegraphics[width=0.7\textwidth]{fig/clusteringMeanShift.png}
   \end{figure}
 \end{frame}
 
@@ -83,8 +116,8 @@
 
 \begin{frame}{3.1 Clustering: Iris dataset, GMM result}
   \begin{figure}
-    \includegraphics[width=0.9\textwidth]{fig/clusteringTrue.png}
-    \includegraphics[width=0.9\textwidth]{fig/clusteringGMM.png}
+    \includegraphics[width=0.7\textwidth]{fig/clusteringTrue.png}
+    \includegraphics[width=0.7\textwidth]{fig/clusteringGMM.png}
   \end{figure}
 \end{frame}
 
@@ -112,6 +145,6 @@
     \end{itemize}
   \end{itemize}
   \begin{figure}
-    \includegraphics[width=0.8\textwidth]{fig/PCA.png}
+    \includegraphics[width=0.6\textwidth]{fig/PCA.png}
   \end{figure}
 \end{frame}
