@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.14159265-2.6-0.99999 (TeX Live 2018) (preloaded format=xelatex 2018.12.27)  16 MAR 2021 15:49
+This is XeTeX, Version 3.14159265-2.6-0.99999 (TeX Live 2018) (preloaded format=xelatex 2018.12.27)  22 MAR 2021 09:53
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -2391,26 +2391,6 @@ Overfull \hbox (7.08693pt too wide) has occurred while \output is active
 [44
 
 ]
-Overfull \hbox (1.77pt too wide) has occurred while \output is active
-[][] 
- []
-
-
-Overfull \hbox (1.77pt too wide) has occurred while \output is active
-[][] 
- []
-
-File: figs/logo-agaetis-hor-white-rgb.eps Graphic file (type eps)
-<figs/logo-agaetis-hor-white-rgb.eps>
-Missing character: There is no ; in font nullfont!
-
-Overfull \hbox (7.08693pt too wide) has occurred while \output is active
-[] 
- []
-
-[45
-
-]
 File: notebook/decisionTrees/titanic.pdf Graphic file (type pdf)
 <use notebook/decisionTrees/titanic.pdf>
 
@@ -2431,7 +2411,7 @@ Overfull \hbox (7.08693pt too wide) has occurred while \output is active
 [] 
  []
 
-[46
+[45
 
 ]) (./slides/3_nonsupervise.tex
 Overfull \hbox (1.77pt too wide) has occurred while \output is active
@@ -2451,7 +2431,7 @@ Overfull \hbox (7.08693pt too wide) has occurred while \output is active
 [] 
  []
 
-[47
+[46
 
 ]
 Overfull \hbox (1.77pt too wide) has occurred while \output is active
@@ -2471,7 +2451,7 @@ Overfull \hbox (7.08693pt too wide) has occurred while \output is active
 [] 
  []
 
-[48
+[47
 
 ]
 File: figs/clusteringComparison.png Graphic file (type bmp)
@@ -2494,7 +2474,7 @@ Overfull \hbox (7.08693pt too wide) has occurred while \output is active
 [] 
  []
 
-[49
+[48
 
 ]
 File: figs/gif/kmeanAnim-0.png Graphic file (type bmp)
@@ -2554,7 +2534,7 @@ Overfull \hbox (7.08693pt too wide) has occurred while \output is active
 [] 
  []
 
-[50
+[49
 
 ]
 Overfull \hbox (1.77pt too wide) has occurred while \output is active
@@ -2574,7 +2554,7 @@ Overfull \hbox (7.08693pt too wide) has occurred while \output is active
 [] 
  []
 
-[51
+[50
 
 ]
 File: figs/clusteringTrue.png Graphic file (type bmp)
@@ -2599,7 +2579,7 @@ Overfull \hbox (7.08693pt too wide) has occurred while \output is active
 [] 
  []
 
-[52
+[51
 
 ]
 Overfull \hbox (1.77pt too wide) has occurred while \output is active
@@ -2619,7 +2599,7 @@ Overfull \hbox (7.08693pt too wide) has occurred while \output is active
 [] 
  []
 
-[53
+[52
 
 ]
 File: figs/clusteringTrue.png Graphic file (type bmp)
@@ -2644,7 +2624,7 @@ Overfull \hbox (7.08693pt too wide) has occurred while \output is active
 [] 
  []
 
-[54
+[53
 
 ]
 File: figs/gaussianFct.png Graphic file (type bmp)
@@ -2667,7 +2647,7 @@ Overfull \hbox (7.08693pt too wide) has occurred while \output is active
 [] 
  []
 
-[55
+[54
 
 ]
 File: figs/clusteringTrue.png Graphic file (type bmp)
@@ -2692,7 +2672,7 @@ Overfull \hbox (7.08693pt too wide) has occurred while \output is active
 [] 
  []
 
-[56
+[55
 
 ]
 Overfull \hbox (1.77pt too wide) has occurred while \output is active
@@ -2712,7 +2692,7 @@ Overfull \hbox (7.08693pt too wide) has occurred while \output is active
 [] 
  []
 
-[57
+[56
 
 ]
 File: figs/PCA.png Graphic file (type bmp)
@@ -2735,7 +2715,7 @@ Overfull \hbox (7.08693pt too wide) has occurred while \output is active
 [] 
  []
 
-[58
+[57
 
 ]) (./slides/4_autresAlgos.tex
 File: figs/collabFilteringEx.png Graphic file (type bmp)
@@ -2758,7 +2738,7 @@ Overfull \hbox (7.08693pt too wide) has occurred while \output is active
 [] 
  []
 
-[59
+[58
 
 ]
 Overfull \hbox (1.77pt too wide) has occurred while \output is active
@@ -2778,7 +2758,7 @@ Overfull \hbox (7.08693pt too wide) has occurred while \output is active
 [] 
  []
 
-[60
+[59
 
 ]
 File: figs/Front_pareto.png Graphic file (type bmp)
@@ -2803,7 +2783,7 @@ Overfull \hbox (7.08693pt too wide) has occurred while \output is active
 [] 
  []
 
-[61
+[60
 
 ]
 File: figs/gif/ag/3bd2f86e4098463caf88e538c6a9746e-0.png Graphic file (type bmp
@@ -2974,7 +2954,7 @@ Overfull \hbox (7.08693pt too wide) has occurred while \output is active
 [] 
  []
 
-[62
+[61
 
 ])
 \tf@nav=\write6
@@ -3024,25 +3004,33 @@ Overfull \hbox (7.08693pt too wide) has occurred while \output is active
 [] 
  []
 
-[63
+[62
 
 
 ]
 Package atveryend Info: Empty hook `BeforeClearDocument' on input line 69.
 Package atveryend Info: Empty hook `AfterLastShipout' on input line 69.
- (./main.aux)
+ (./main.aux
+
+Package pdfbase Warning: Rerun to get internal references right!
+
+)
 Package atveryend Info: Empty hook `AtVeryEndDocument' on input line 69.
 Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 69.
 Package rerunfilecheck Info: File `main.out' has not changed.
 (rerunfilecheck)             Checksum: D41D8CD98F00B204E9800998ECF8427E.
+
+
+LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
+
  ) 
 Here is how much of TeX's memory you used:
  37166 strings out of 492933
  741376 string characters out of 6133144
- 886523 words of memory out of 5000000
+ 887523 words of memory out of 5000000
  40426 multiletter control sequences out of 15000+600000
  546786 words of font info for 113 fonts, out of 8000000 for 9000
  1348 hyphenation exceptions out of 8191
  57i,16n,67p,822b,743s stack positions out of 5000i,500n,10000p,200000b,80000s
 
-Output written on main.pdf (63 pages).
+Output written on main.pdf (62 pages).

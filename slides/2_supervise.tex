@@ -643,21 +643,22 @@
       \vspace{0.5cm}
     \item \textbf{averaging}: plusieurs estimateurs (\textit{learners}) indépendant dont on moyenne les prédictions (\textit{Random Forests}, $\dots$)
       \vspace{0.5cm}
-    \item \textbf{boosting}: plusieurs estimateurs combinés (\textit{AdaBoost}, \textit{XGBoost}, $\dots$)
+    \item \textbf{boosting}: plusieurs estimateurs combinés (\textit{AdaBoost}, \textit{Gradient Boosting}, $\dots$)
     \end{itemize}
   \end{itemize}
 \end{frame}
 
 \begin{frame}{2.4 Exemple d'algorithme d'\textit{averaging}: \textbf{Random Forests}}
   \begin{itemize}
-  \item \textit{Bagging}: Chaque estimateur (arbre) de l'ensemble est construit à partir d'un sous-échantillon aléatoire (avec replacement) de l'échantillon d'entrainement (\textit{Bootstrap aggregating})
-  \item \textit{Features bagging}: La \textit{meilleure} séparation possible sur un sous-échantillon aléatoire des variables
-  \item Soit $f_{b}$, l'arbre entrainé sur le sous-échantillons $b$ ($b \in[1,B]$), on calcule la prédiction globale en moyennant les prédictions de tout les arbres:
+  \item \textit{Bagging}: Chaque estimateur (arbre) de l'ensemble est construit à partir d'un sous-échantillon aléatoire $b$ (avec replacement) de l'échantillon d'entrainement $B$ (\textit{Bootstrap aggregating})
+  \item \textit{Features bagging}: La \textit{meilleure} séparation possible sur un sous-échantillon aléatoire des variables $p$ (souvent: $\sqrt{p}$)
+  \item Soit $f_{b}$, l'arbre entrainé sur le sous-échantillons $b$ ($b \in[1,B]$), on calcule la prédiction globale en moyennant les prédictions de tout les arbres dans le cas d'une prédiction:
   \end{itemize}
   \begin{equation*}
     \hat{f} = \frac{1}{B}\displaystyle\sum_{b=1}^{B} f_{b}(x)
   \end{equation*}
   \begin{itemize}
+  \item Dans le cas d'une classification, on utilise le résultat du vote majoritaire des \textit{learners}
   \item Cette méthode obtient de meilleure performance car elle réduit la \textit{variance} du modèle sans accroitre le \textit{biais}
   \end{itemize}
 \end{frame}
@@ -671,27 +672,6 @@
   \end{itemize}
 \end{frame}
 
-\begin{frame}{2.4 Exemple d'algorithme de \textit{boosting}: \textbf{XGBoost}}
-  \begin{itemize}
-  \item Obtient d'excellent résultats sur la plupart des cas d'usages (classification et régression)
-  \item Des arbres sont générés aléatoirement comme pour les \textit{random forests}
-  \item Mais au lieu de moyenner les prédictions, on additionne les prédictions
-    \begin{itemize}
-    \item À chaque étape, des arbres sont générés et on sélectionne celui qui optimise la fonction d'objectif (une fonction de coût + une fonction qui mesure la complexité du modèle)
-    \item On additionne la prédiction de cet arbre à la prédiction du modèle et on recommence jusqu'à atteindre une performance suffisante
-    \end{itemize}
-  \end{itemize}
-  \begin{equation*}
-    \begin{cases}
-      \hat{y_{i}}^{(0)} = 0 \\
-      \hat{y_{i}}^{(1)} = \hat{y_{i}}^{(0)} + f_{1}(x_{i}) = f_{1}(x_{i})\\
-      \hat{y_{i}}^{(2)} = \hat{y_{i}}^{(1)} + f_{2}(x_{i}) = f_{1}(x_{i}) + f_{2}(x_{i})\\
-      \dots\\
-      \hat{y_{i}}^{(t)} = \hat{y_{i}}^{(t-1)} + f_{t}(x_{i}) = \displaystyle\sum_{k=1}^{t} f_{k}(x_{i}) \\
-    \end{cases}
-  \end{equation*}
-\end{frame}
-
 \begin{frame}{2.4 Arbres de décision: \textit{Titanic}}
   \begin{figure}
     \includegraphics[width=\textwidth]{notebook/decisionTrees/titanic.pdf}
@@ -699,9 +679,9 @@
   \begin{table}
     \footnotesize
     \begin{tabular}{l|l|l|l|l}
-      & \textbf{Decision Tree}  & \textbf{Random Forest}  & \textbf{AdaBoost}  & \textbf{XGBoost} \\
+      & \textbf{Decision Tree}  & \textbf{Random Forest}  & \textbf{AdaBoost}  & \textbf{Gradient Boosting} \\
       \hline
-      \textbf{Accuracy (\boldmath $\%$)} & 77.6 & 81.1 & 83.2 & 83.9 \\
+      \textbf{Accuracy (\boldmath $\%$)} & 77.6 & 81.1 & 83.2 & 86.0 \\
     \end{tabular}
   \end{table}
 \end{frame}
