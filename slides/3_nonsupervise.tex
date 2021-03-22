@@ -19,7 +19,13 @@
   \end{itemize}
 \end{frame}
 
-\begin{frame}{K-Means: description et limites}
+\begin{frame}{3.1 Les algorithmes de clustering}
+  \begin{figure}
+    \includegraphics[height=0.8\textheight]{figs/clusteringComparison.png}
+  \end{figure}
+\end{frame}
+
+\begin{frame}{3.1 K-Means: description et limites}
   \begin{itemize}
   \item Sépare les données en $K$ clusters $C_{k}$ d'égale variance (dispersion)
   \item L'algorithme modifie la position des \textit{centroïdes} $\mu_{k}$ afin de minimiser l'écart moyen de l'ensemble des points d'un cluster à son \textit{centroïde}
@@ -38,7 +44,7 @@
   \end{minipage}
   \hfill
   \begin{minipage}{0.4\textwidth}
-    \animategraphics[autoplay,loop,width=0.8\textwidth]{5}{fig/gif/kmeanAnim-}{0}{12} %% Insert gif as png list
+    \animategraphics[autoplay,loop,width=0.8\textwidth]{5}{figs/gif/kmeanAnim-}{0}{12} %% Insert gif as png list
   \end{minipage}
   \vspace{-1cm}
   \begin{itemize}
@@ -52,21 +58,29 @@
   \end{itemize}
 \end{frame}
 
-%\begin{frame}{3.1 K-means}
-%  \begin{itemize}
-%  \item Sépare les données en $K$ clusters $C$ d'égale variance (dispersion)
-%  \item Soit les \textit{centroïdes}, la moyenne des échantillons dans chaque cluster
-%  \item \textit{K-means} modifie la position des \textit{centroïdes} jusqu'à trouver la valeur qui minimise l'écart moyens des échantillons vis-à-vis de son cluster correspondant
-%  \item Critère de minimisation: \textbf{inertie}: $I = \displaystyle\sum_{k=0}^{K}\displaystyle\sum_{x \in C_{k}} || x - \mu_{k} ||^{2}$
-%  \item La performance du \textit{K-means} est fortement dépendante de son initialisation \textit{(Solution: plusieurs initialisation $\rightarrow$ moyenne)}
-%  \item Le \textit{K-means} ne fonctionne pas avec des variables catégorielles (il existe des adaptations). Il est préférable de normaliser les variables.
-%  \end{itemize}
-%\end{frame}
+\begin{frame}{3.1 K-Prototypes}
+  \begin{itemize}
+  \item Implémentation python: \underline{\href{https://github.com/nicodv/kmodes}{https://github.com/nicodv/kmodes}}
+  \item Permet de mélanger variables \textcolor{orangeAgaetis}{numériques} (\boldmath $r$ \unboldmath) et \textcolor{orangeAgaetis}{catégorielles} (\boldmath $c$ \unboldmath)
+  \item \textit{centroïdes:} $\mu_{k}$ \boldmath $\rightarrow$ \unboldmath \textit{prototypes:} $Q_{k}$
+  \item On redéfinit la fonction de coût:
+    \begin{equation*}
+      I = \displaystyle\sum_{k=0}^{K}\displaystyle\sum_{x \in C_{k}} \Big( \displaystyle\sum_{j=1}^{m_{r}}(x_{j}^{r} - q_{jk}^{r})^{2} + \gamma_{k}\displaystyle\sum_{j=1}^{m_{c}}\delta(x_{j}^{c}, q_{jk}^{c})\Big) ~~\text{with}~~ \delta(p,q) = \begin{cases} 0 & \quad \text{if } p = q\\ 1 & \quad \text{if } p \neq q \end{cases}
+    \end{equation*}
+  \item \textbf{\textcolor{orangeAgaetis}{Algorithme:}}
+    \begin{enumerate}
+      \normalsize
+    \item Initialise \boldmath $K$ \unboldmath prototypes (aléatoirement)
+    \item Détermine le plus proche prototype de chaque entrée, et crée les clusters
+    \item Met à jour les prototypes de chaque cluster en minimisant $I$
+    \end{enumerate}
+  \end{itemize}
+\end{frame}
 
 \begin{frame}{3.1 Clustering: Iris dataset, K-means result}
   \begin{figure}
-    \includegraphics[width=0.7\textwidth]{fig/clusteringTrue.png}
-    \includegraphics[width=0.7\textwidth]{fig/clusteringKmeans.png}
+    \includegraphics[width=0.7\textwidth]{figs/clusteringTrue.png}
+    \includegraphics[width=0.7\textwidth]{figs/clusteringKmeans.png}
   \end{figure}
 \end{frame}
 
@@ -84,26 +98,26 @@
 
 \begin{frame}{3.1 Clustering: Iris dataset, Mean Shift result}
   \begin{figure}
-    \includegraphics[width=0.7\textwidth]{fig/clusteringTrue.png}
-    \includegraphics[width=0.7\textwidth]{fig/clusteringMeanShift.png}
+    \includegraphics[width=0.7\textwidth]{figs/clusteringTrue.png}
+    \includegraphics[width=0.7\textwidth]{figs/clusteringMeanShift.png}
   \end{figure}
 \end{frame}
 
 \begin{frame}{3.1 Gaussian mixture models}
   \begin{itemize}
-  \item \textbf{Hypothèse:} la structure des données est compatible avec un mélange de gaussiènne
+  \item \textbf{Hypothèse:} la structure des données est compatible avec un mélange de gaussiennes
   \end{itemize}
   \begin{minipage}{0.48\textwidth}
     \begin{itemize}
-    \item On ajuste les paramètres de $N$ gaussiènnes jusqu'à trouver ceux qui \textit{collent} le mieux aux données
+    \item On ajuste les paramètres de $N$ gaussiennes jusqu'à trouver ceux qui \textit{collent} le mieux aux données
     \end{itemize}
   \end{minipage}
   \begin{minipage}{0.48\textwidth}
     \begin{figure}
-      \includegraphics[width=0.8\textwidth]{fig/gaussianFct.png}
+      \includegraphics[width=0.8\textwidth]{figs/gaussianFct.png}
     \end{figure}
     \tiny
-    \vspace{-0.9cm}
+    \vspace{-0.5cm}
     \begin{center}
       depuis \href{https://en.wikipedia.org/wiki/Gaussian_function}{\color{blue}{Wikipedia}}
     \end{center}
@@ -116,8 +130,8 @@
 
 \begin{frame}{3.1 Clustering: Iris dataset, GMM result}
   \begin{figure}
-    \includegraphics[width=0.7\textwidth]{fig/clusteringTrue.png}
-    \includegraphics[width=0.7\textwidth]{fig/clusteringGMM.png}
+    \includegraphics[width=0.7\textwidth]{figs/clusteringTrue.png}
+    \includegraphics[width=0.7\textwidth]{figs/clusteringGMM.png}
   \end{figure}
 \end{frame}
 
@@ -145,6 +159,6 @@
     \end{itemize}
   \end{itemize}
   \begin{figure}
-    \includegraphics[width=0.6\textwidth]{fig/PCA.png}
+    \includegraphics[width=0.6\textwidth]{figs/PCA.png}
   \end{figure}
 \end{frame}

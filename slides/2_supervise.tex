@@ -42,7 +42,7 @@
   \end{itemize}
 
   \begin{figure}
-    \includegraphics[width=0.6\textwidth]{fig/gpuPrices.png}    
+    \includegraphics[width=0.6\textwidth]{figs/gpuPrices.png}    
   \end{figure}
 \end{frame}
 
@@ -68,7 +68,7 @@
   \end{itemize}
   \vspace{-0.5cm}
   \begin{figure}
-    \includegraphics[width=0.6\textwidth]{fig/model.png}
+    \includegraphics[width=0.6\textwidth]{figs/model.png}
   \end{figure}
   \vspace{-0.5cm}
   \begin{itemize}
@@ -82,7 +82,7 @@
   \item Ex, somme quadratique des erreurs: $J(\theta) = \frac{1}{2m} \displaystyle\sum_{i=0}^{m}(\hat{y}^{(i)} - y^{(i)})^{2}$
   \end{itemize}
   \begin{figure}
-    \includegraphics[width=0.6\textwidth]{fig/modelEstimation.png}
+    \includegraphics[width=0.6\textwidth]{figs/modelEstimation.png}
   \end{figure}  
 \end{frame}
 
@@ -94,7 +94,7 @@
   \end{itemize}
   \vspace{-0.5cm}
   \begin{figure}
-    \includegraphics[width=0.6\textwidth]{fig/costFct.png}
+    \includegraphics[width=0.6\textwidth]{figs/costFct.png}
   \end{figure}
   \vspace{-0.5cm}
   \begin{itemize}
@@ -114,7 +114,7 @@
   \end{center}
   \vspace{-0.5cm}
   \begin{figure}
-    \includegraphics[width=0.5\textwidth]{fig/derivation.png}
+    \includegraphics[width=0.5\textwidth]{figs/derivation.png}
   \end{figure}
   \vspace{-0.5cm}
 \end{frame}
@@ -160,23 +160,22 @@
 
 \begin{frame}{2.1 Préparation du dataset}
   \begin{itemize}
-  \item Bonne pratique de ML, pour tout les algos!
-  \item On sépare \textbf{aléatoirement} les données en 2 (3) échantillons:
+  \item On sépare les données en trois sous-échantillons:
     \begin{itemize}
       \normalsize
-    \item Entraînement / (Validation) / Test
-    \item \textit{80 / 20} (\textit{70 / 30}) ou \textit{60 / 20 / 20}
+    \item \textbf{Train:} (60$\%$) échantillon d'entrainement
+    \item \textbf{Validation:} (20$\%$) échantillon qui nous permet de mesurer les performances de différents algorithmes et pour différentes valeurs d'hyperparamètres
+    \item \textbf{Test:} (20$\%$) échantillon de test qui donne la performance du modèle final
     \end{itemize}
-    \vspace{0.2cm}
-  \item \textit{Entraînement:} utilisé pour la descente de gradient
-  \item \textit{Validation:} utilisé pour l'hyperparamètrage de l'algo
-  \item \textit{Test:} utilisé pour mesurer la performance du modèle
+  \item On peut utiliser deux échantillons train/test (80/20 ou 70/30) dans certains cas.
+  \item Il est important de séparer les données en différents sous-échantillons de test pour être sûr que le modèle de généralise bien
+  \item S'assurer que les sous-échantillons proviennent de la même source et soient représentatifs
   \end{itemize}
 \end{frame}
 
 \begin{frame}{2.1 C'est parti !}
   \begin{figure}
-    \includegraphics[width=\textwidth]{fig/gradDescent.png}
+    \includegraphics[width=\textwidth]{figs/gradDescent.png}
   \end{figure}
   \begin{itemize}
   \item La descente de gradient c'est achevée au bout de quelques itérations
@@ -194,7 +193,7 @@
   \end{itemize}
   \vspace{-0.2cm}
   \begin{figure}
-    \includegraphics[width=0.6\textwidth]{fig/pred.png}
+    \includegraphics[width=0.6\textwidth]{figs/pred.png}
   \end{figure}
   \vspace{-0.5cm}
   \begin{itemize}
@@ -208,7 +207,7 @@
   \item \boldmath $\alpha$ \textbf{Trop petit:} la descente de gradient est très longue
   \end{itemize}
   \begin{figure}
-    \includegraphics[width=0.9\textwidth]{fig/learningRateChoice.png}
+    \includegraphics[width=0.9\textwidth]{figs/learningRateChoice.png}
   \end{figure}
 \end{frame}
 
@@ -259,9 +258,9 @@
   \item Pour illustrer: régression linéaire à deux dimensions
   \end{itemize}
   \begin{figure}
-    \includegraphics[width=0.4\textwidth]{fig/multiVarData.png}
-    \includegraphics[width=0.4\textwidth]{fig/multiVarCostFct.png}\\
-    \includegraphics[width=0.45\textwidth]{fig/multiVarDesc.png}
+    \includegraphics[width=0.4\textwidth]{figs/multiVarData.png}
+    \includegraphics[width=0.4\textwidth]{figs/multiVarCostFct.png}\\
+    \includegraphics[width=0.45\textwidth]{figs/multiVarDesc.png}
   \end{figure}
 \end{frame}
 
@@ -276,38 +275,6 @@
     \item Normaliser le dataset (pour accélérer la descente de gradient)
     \end{itemize}
   \end{itemize}
-\end{frame}
-
-\begin{frame}{2.1 Régression linéaire multivariables: Résultats}
-  \begin{itemize}
-  \item On utilise la même valeur de $\epsilon = 0.0001$ et $\alpha = 0.03$
-  \item Plus long! Mais meilleur résultats:
-  \item Modèle simple: $err ~ \approx ~ 100$
-  \item Modèle multivariable: $err ~ \approx ~ 30$
-  \end{itemize}
-  \begin{figure}
-    \includegraphics[width=0.45\textwidth]{fig/multiVarDesc.png}\\
-  \end{figure}
-\end{frame}
-  
-\begin{frame}{2.1 Pour conclure sur la régression linéaire}
-  \begin{itemize}
-  \item \textbf{Regression Linéaire:} $\hat{y}$ est une valeur \textit{continue}
-    \begin{itemize}
-      \normalsize
-    \item Valeur discrète: \textbf{Regression Logistique} (\textit{classification})
-    \end{itemize}
-    \vspace{0.2cm}
-  \item Le résultat $\hat{y}$ dépend \textbf{linéairement} des variables $x_{i}$ si:
-    \begin{equation*}
-      \hat{y} = \theta_{1}x_{1} + \dots + \theta_{n}x_{n} = \displaystyle\sum_{i=1}^{n} \theta_{i} x_{i}
-    \end{equation*}
-  \item \textbf{Supervisé}: $y$ connu pour chaque élément du le jeu de données d'entrainement
-  \item Facile à implémenter (encore plus avec Scikit-learn ...), rapide: 
-  \end{itemize}
-  \begin{center}
-    $\Rightarrow$ bon point de départ sur un sujet
-  \end{center}
 \end{frame}
 
 \begin{frame}{2.1 Features scaling}
@@ -337,6 +304,38 @@
   \end{itemize}
 \end{frame}
 
+\begin{frame}{2.1 Régression linéaire multivariables: Résultats}
+  \begin{itemize}
+  \item On utilise la même valeur de $\epsilon = 0.0001$ et $\alpha = 0.03$
+  \item Plus long! Mais meilleur résultats:
+  \item Modèle simple: $err ~ \approx ~ 100$
+  \item Modèle multivariable: $err ~ \approx ~ 30$
+  \end{itemize}
+  \begin{figure}
+    \includegraphics[width=0.45\textwidth]{figs/multiVarDesc.png}\\
+  \end{figure}
+\end{frame}
+  
+\begin{frame}{2.1 Pour conclure sur la régression linéaire}
+  \begin{itemize}
+  \item \textbf{Regression Linéaire:} $\hat{y}$ est une valeur \textit{continue}
+    \begin{itemize}
+      \normalsize
+    \item Valeur discrète: \textbf{Regression Logistique} (\textit{classification})
+    \end{itemize}
+    \vspace{0.2cm}
+  \item Le résultat $\hat{y}$ dépend \textbf{linéairement} des variables $x_{i}$ si:
+    \begin{equation*}
+      \hat{y} = \theta_{1}x_{1} + \dots + \theta_{n}x_{n} = \displaystyle\sum_{i=1}^{n} \theta_{i} x_{i}
+    \end{equation*}
+  \item \textbf{Supervisé}: $y$ connu pour chaque élément du le jeu de données d'entrainement
+  \item Facile à implémenter (encore plus avec Scikit-learn ...), rapide: 
+  \end{itemize}
+  \begin{center}
+    $\Rightarrow$ bon point de départ sur un sujet
+  \end{center}
+\end{frame}
+
 \begin{frame}{2.2 La régression logistique}
   \begin{itemize}
   \item \textbf{\textcolor{orange}{Classification}}: prédire un nombre limités de valeurs discrètes
@@ -349,10 +348,10 @@
     \begin{itemize}
     \item $y \in \{0,1\}$ \textcolor{orange}{$\Rightarrow$} On défini un seuil $S$ pour $h_{\theta}(x)$:
       \begin{equation*}
-        \begin{matrix*}[l]
+        \begin{cases}
           h_{\theta}(x) \geq S \rightarrow y = 1\\
           h_{\theta}(x) < S \rightarrow y = 0
-        \end{matrix*}
+        \end{cases}
       \end{equation*}
     \end{itemize}
   \item \textbf{Problème:} On voudrait que $0 \leq h_{\theta}(x) \leq 1$
@@ -371,10 +370,10 @@
   \end{itemize}
   \begin{minipage}{0.4\textwidth}
     \begin{equation*}
-      \begin{matrix*}[l]
+      \begin{cases}
         z = \displaystyle\sum_{i=0}^{n} \theta_{i} x_{i}\\
         h_\theta(x) = g(z) \\
-      \end{matrix*}
+      \end{cases}
     \end{equation*}
     \vfill
     \begin{equation*}
@@ -383,7 +382,7 @@
   \end{minipage}
   \begin{minipage}{0.5\textwidth}
     \begin{figure}
-      \includegraphics[width=0.9\textwidth]{fig/logisticFct.png}
+      \includegraphics[width=0.9\textwidth]{figs/logisticFct.png}
     \end{figure}
     \begin{center}
       \tiny
@@ -415,8 +414,8 @@
     \end{cases}
   \end{equation*}
   \begin{figure}
-    \includegraphics[width=.22\textwidth]{fig/logisticRegressionCostFunction1.png}
-    \includegraphics[width=.2\textwidth]{fig/logisticRegressionCostFunction2.png}
+    \includegraphics[width=.22\textwidth]{figs/logisticRegressionCostFunction1.png}
+    \includegraphics[width=.2\textwidth]{figs/logisticRegressionCostFunction2.png}
   \end{figure}
 \end{frame}
 
@@ -431,22 +430,46 @@
     \end{itemize}
   \end{itemize}
   \begin{equation*}
-    \begin{matrix*}[l]
+    \begin{cases}
       h_{\theta}^{(0)} = P(y=0 | x;0)\\
       h_{\theta}^{(1)} = P(y=1 | x;0)\\
       \dots \\
       h_{\theta}^{(n)} = P(y=n | x;0)\\
       \text{prediction} = max_{i}(h_{\theta}^{(i)}(x))\\
-    \end{matrix*}
+    \end{cases}
   \end{equation*}
   \begin{itemize}
   \item Algorithme d'optimisation avancés: \textit{Conjugate gradient}, \textit{(L-)BFGS}, $\dots$
   \end{itemize}
 \end{frame}
 
+\begin{frame}{2.2 La régression logistique}
+  \begin{itemize}
+  \item Application: vision par ordinateur, reconnaissance d'images.
+  \item Objets \textit{"simples"}: chiffres manuscrits
+  \item Régression logistique multiclasse sur MNIST:
+    \begin{itemize}
+      \normalsize
+    \item Durée d'apprentissage $\sim 20 sec$ $~/~$ Précision $\approx 91\%$
+    \end{itemize}
+  \end{itemize}
+  \vfill
+  \begin{minipage}{0.45\textwidth}
+    \begin{figure}
+      \includegraphics[height=0.37\textheight]{figs/digitReco_regrLog.png}
+    \end{figure}
+  \end{minipage}
+  \hfill
+  \begin{minipage}{0.45\textwidth}
+    \begin{figure}
+      \includegraphics[height=0.37\textheight]{figs/bad_digitReco_regrLog.png}
+    \end{figure}
+  \end{minipage}
+\end{frame}
+
 \begin{frame}{2.3 Les problèmes de biais et de variance}
   \begin{figure}
-    \includegraphics[width=0.9\textwidth]{fig/theProblemOfOverfitting.png}
+    \includegraphics[width=0.9\textwidth]{figs/theProblemOfOverfitting.png}
   \end{figure}
   \footnotesize
   \vspace{-1cm}
@@ -461,6 +484,81 @@
     \item Utiliser des méthodes de \textbf{régularisation}
     \end{itemize}
   \end{itemize}  
+\end{frame}
+
+\begin{frame}{2.3 Les bonnes pratiques: biais et variance}
+  \begin{itemize}
+  \item Si $J_{train}(W,b) >> J_{valid}(W,b)$: problème de variance: \textbf{Overfitting}
+  \item Si $J_{train}(W,b) \approx J_{valid}(W,b) >> 0$: problème de biais: \textbf{Underfitting}
+  \item Comment diagnostiquer? deux valeurs à regarder:
+    \begin{itemize}
+      \normalsize
+    \item Erreur de l'échantillon d'entrainement: $t_{err}$
+    \item Erreur de l'échantillon de validation: $v_{err}$
+    \end{itemize}
+  \item On estime le cas idéal (Bayes ou opérateur humain): $\approx 0\%$
+  \end{itemize}
+  \vspace{0.5cm}
+  \begin{minipage}{.39\textwidth}
+    \begin{figure}
+      \includegraphics[trim={0 54 0 0},clip,width=\textwidth]{figs/biasVsVariance}
+    \end{figure}
+    \vspace{-0.5cm}
+    \begin{center}
+      \scriptsize
+      \href{https://www.coursera.org/learn/machine-learning}{\color{blue}{[Coursera]}}
+    \end{center}
+  \end{minipage}
+  \begin{minipage}{.59\textwidth}
+    \begin{table}
+      \begin{tabular}{l|l|l}
+        $t_{err}$ & $v_{err}$ & problème \\
+        \hline
+        1$\%$ & 11$\%$ & haute variance \\
+        15$\%$ & 16$\%$ & haut biais \\
+        15$\%$ & 30$\%$ & haut biais \& haute variance \\
+        0.5$\%$ & 1$\%$ & bas biais \& basse variance \\
+      \end{tabular}
+    \end{table}
+  \end{minipage}
+\end{frame}
+
+\begin{frame}{2.3 Les bonnes pratiques: courbes d'apprentissage}
+  \begin{itemize}
+  \item Entrainer un modèle en augmentant le nombre d'exemples et monitorer l'évolution de l'erreur:
+  \end{itemize}
+  \begin{figure}
+    \includegraphics[trim = {0 0 0 32}, clip, width=0.44\textwidth]{figs/learningCurves1.png}
+    \includegraphics[trim = {0 0 0 30}, clip, width=0.48\textwidth]{figs/learningCurves2.png}
+  \end{figure}
+  \vspace{-0.5cm}
+  \begin{center}
+    \scriptsize
+    Biais et variance \href{https://www.coursera.org/learn/machine-learning}{\color{blue}{[Coursera]}}
+  \end{center}  
+\end{frame}
+
+\begin{frame}{2.3 Les bonnes pratiques: Que faire?}
+  \begin{table}
+    \footnotesize
+    \begin{tabular}{ccccl}
+      \multicolumn{3}{l}{\textcolor{orange}{\textbf{$\bullet$ Haut Biais?}}} & \boldmath $\rightarrow$ \textbf{Oui} $\rightarrow$ \unboldmath & Changer les hyperparamètres \\
+      \multicolumn{3}{l}{(Performance entrainement)} & & Plus de données et étude qualitée \\
+      & & & & Algorithme plus complexe \\
+      & & \boldmath $\downarrow$ \unboldmath & & \multicolumn{1}{c}{\boldmath $\downarrow$ \boldmath} \\
+      & & \textbf{Non} & & \multicolumn{1}{c}{\textit{\textcolor{orange}{Recommencer!}} \boldmath $\rightarrow$ \unboldmath}\\
+      & & \boldmath $\downarrow$ \unboldmath & & \\
+      & & & & \\
+      \multicolumn{3}{l}{\textcolor{orange}{\textbf{$\bullet$ Haute Variance?}}} & \boldmath $\rightarrow$ \textbf{Oui} $\rightarrow$ \unboldmath & Changer les hyperparamètres \\
+      \multicolumn{3}{l}{(Performance validation)} & & Plus de données et étude qualitée  \\
+      & & & & Régularisation \\
+      & & \boldmath $\downarrow$ \unboldmath & & \multicolumn{1}{c}{\boldmath $\downarrow$ \boldmath} \\
+      & & \textbf{Non} & & \multicolumn{1}{c}{\textit{\textcolor{orange}{Recommencer!}} \boldmath $\rightarrow$ \unboldmath}\\
+      & & \boldmath $\downarrow$ \unboldmath & & \\
+      & & & & \\
+      & & \textcolor{orange}{\textbf{OK!}} & & \\      
+    \end{tabular}
+  \end{table}
 \end{frame}
 
 \begin{frame}{2.3 La régularisation}
@@ -491,7 +589,7 @@
   \end{minipage}
   \begin{minipage}{.54\textwidth}
     \begin{figure}
-      \includegraphics[width=.9\textwidth]{fig/decisionTreeExample.png}
+      \includegraphics[width=.9\textwidth]{figs/decisionTreeExample.png}
     \end{figure}
     \begin{center}
       \scriptsize
@@ -521,11 +619,11 @@
   \item Tout les types de données (catégorielle, numérique, ...) peuvent être mélangés
   \end{itemize}
   \begin{figure}
-    \includegraphics[trim={0 0 0 40},clip,width=.3\textwidth]{fig/spiralDTresult.png}
-    \includegraphics[trim={0 0 0 40},clip,width=.3\textwidth]{fig/goodPartitionDT.png}
-    \includegraphics[trim={0 0 0 40},clip,width=.3\textwidth]{fig/overfittingPartitionDT.png}
+    \includegraphics[trim={0 0 0 40},clip,width=.3\textwidth]{figs/spiralDTresult.png}
+    \includegraphics[trim={0 0 0 40},clip,width=.3\textwidth]{figs/goodPartitionDT.png}
+    \includegraphics[trim={0 0 0 40},clip,width=.3\textwidth]{figs/overfittingPartitionDT.png}
   \end{figure}
-  \vspace{-1cm}
+  \vspace{-0.8cm}
   \begin{center}
     \scriptsize
     \textit{Illustration depuis \href{https://www.classes.cs.uchicago.edu/archive/2013/winter/12200-1/assignments/pa4/index.html}{\color{blue}{University of Chicago}}}
@@ -573,26 +671,26 @@
   \end{itemize}
 \end{frame}
 
-%\begin{frame}{2.4 Exemple d'algorithme de \textit{boosting}: \textbf{XGBoost}}
-%  \begin{itemize}
-%  \item Obtient d'excellent résultats sur la plupart des cas d'usages (classification et régression)
-%  \item Des arbres sont générés aléatoirement comme pour les \textit{random forests}
-%  \item Mais au lieu de moyenner les prédictions, on additionne les prédictions
-%    \begin{itemize}
-%    \item À chaque étape, des arbres sont générés et on sélectionne celui qui optimise la fonction d'objectif (une fonction de coût + une fonction qui mesure la complexité du modèle)
-%    \item On additionne la prédiction de cet arbre à la prédiction du modèle et on recommence jusqu'à atteindre une performance suffisante
-%    \end{itemize}
-%  \end{itemize}
-%  \begin{equation*}
-%    \begin{matrix*}[l]
-%      \hat{y_{i}}^{(0)} = 0 \\
-%      \hat{y_{i}}^{(1)} = \hat{y_{i}}^{(0)} + f_{1}(x_{i}) = f_{1}(x_{i})\\
-%      \hat{y_{i}}^{(2)} = \hat{y_{i}}^{(1)} + f_{2}(x_{i}) = f_{1}(x_{i}) + f_{2}(x_{i})\\
-%      \dots\\
-%      \hat{y_{i}}^{(t)} = \hat{y_{i}}^{(t-1)} + f_{t}(x_{i}) = \displaystyle\sum_{k=1}^{t} f_{k}(x_{i}) \\
-%    \end{matrix*}
-%  \end{equation*}
-%\end{frame}
+\begin{frame}{2.4 Exemple d'algorithme de \textit{boosting}: \textbf{XGBoost}}
+  \begin{itemize}
+  \item Obtient d'excellent résultats sur la plupart des cas d'usages (classification et régression)
+  \item Des arbres sont générés aléatoirement comme pour les \textit{random forests}
+  \item Mais au lieu de moyenner les prédictions, on additionne les prédictions
+    \begin{itemize}
+    \item À chaque étape, des arbres sont générés et on sélectionne celui qui optimise la fonction d'objectif (une fonction de coût + une fonction qui mesure la complexité du modèle)
+    \item On additionne la prédiction de cet arbre à la prédiction du modèle et on recommence jusqu'à atteindre une performance suffisante
+    \end{itemize}
+  \end{itemize}
+  \begin{equation*}
+    \begin{cases}
+      \hat{y_{i}}^{(0)} = 0 \\
+      \hat{y_{i}}^{(1)} = \hat{y_{i}}^{(0)} + f_{1}(x_{i}) = f_{1}(x_{i})\\
+      \hat{y_{i}}^{(2)} = \hat{y_{i}}^{(1)} + f_{2}(x_{i}) = f_{1}(x_{i}) + f_{2}(x_{i})\\
+      \dots\\
+      \hat{y_{i}}^{(t)} = \hat{y_{i}}^{(t-1)} + f_{t}(x_{i}) = \displaystyle\sum_{k=1}^{t} f_{k}(x_{i}) \\
+    \end{cases}
+  \end{equation*}
+\end{frame}
 
 \begin{frame}{2.4 Arbres de décision: \textit{Titanic}}
   \begin{figure}

@@ -1,0 +1,53 @@
+\mode<presentation>
+
+% Title page
+\defbeamertemplate*{title page}{agaetis}{
+  \makebox[\linewidth][c]{%
+    \begin{minipage}{\dimexpr\textwidth+10em\relax}
+      \raggedright
+      \hspace{1.9cm}
+      \includegraphics[width=0.3\textwidth]{figs/logo-agaetis-ver-white-rgb.eps}
+      \hspace{0.25cm}
+      \includegraphics[trim={0 0 1.05cm 0}, clip, width=0.5\textwidth]{figs/agaetisBackgroundReseau.png}
+    \end{minipage}%
+  }%
+  \begin{center}
+    \Large
+    \textbf{\textcolor{white}{\inserttitle}}\\
+    \vspace{0.2cm}
+    \normalsize
+    \textcolor{white}{\insertdate}
+  \end{center}
+}
+
+\newcommand\agaetistitlepage{
+{
+  \setbeamercolor{background canvas}{bg=orangeAgaetis}
+  \begin{frame}
+    \titlepage
+  \end{frame}
+}
+}
+
+% Ending page
+\setbeamertemplate{endpage}{
+  {
+    \setbeamercolor{background canvas}{bg=orangeAgaetis}
+    \begin{frame}
+      \begin{minipage}{.45\textwidth}
+        \begin{center}
+          \includegraphics[width=0.7\textwidth]{figs/AgaetisReprésentationDigitalTwin.eps}
+        \end{center}
+      \end{minipage}
+      \hfill{\color{white}\vline width 2pt}\hfill
+      \begin{minipage}{.45\textwidth}
+        \begin{center}
+          \includegraphics[width=0.8\textwidth]{figs/AgaetisHumanAfterAll.eps}
+        \end{center}
+      \end{minipage}
+    \end{frame}
+  }
+}
+\AtEndDocument{\usebeamertemplate{endpage}}
+
+\mode<all>

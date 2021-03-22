@@ -1,4 +1,19 @@
 \begin{frame}{1. Intro: Qu'est ce que le \textit{Machine Learning}}
+  \begin{figure}
+    \includegraphics[width=0.276\textwidth]{figs/aiVennDiagram.png} \hspace{1cm}
+    \includegraphics[width=0.4\textwidth]{figs/mlvsAI.png}
+  \end{figure}
+  \begin{itemize}
+  \item \textcolor{orangeAgaetis}{\textbf{AI}}: Domaine d'étude \boldmath $ \textcolor{orangeAgaetis}{\Rightarrow}$ \unboldmath abus de langage (NN, RL)
+  \item \textcolor{orangeAgaetis}{\textbf{ML}}: Algorithmes/outils développés dans le cadre de la recherche sur l'IA
+  \end{itemize}
+
+  \tiny
+  \vspace{-1.5cm}
+  \textit{[From \href{http://www.deeplearningbook.org/}{\color{blue}{MIT Press book Deep Learning}}]}
+\end{frame}
+
+\begin{frame}{1. Intro: Qu'est ce que le \textit{Machine Learning}}
   \begin{itemize}
   \item \textbf{Arthur Samuel:}
     \begin{center}
@@ -20,21 +35,6 @@
 \end{frame}
 
 \begin{frame}{1. Intro: Qu'est ce que le \textit{Machine Learning}}
-  \begin{figure}
-    \includegraphics[height=0.8\textheight]{fig/aiVennDiagram.png}
-  \end{figure}
-  \tiny
-  \vspace{-1cm}
-  \textit{[From \href{http://www.deeplearningbook.org/}{\color{blue}{MIT Press book Deep Learning}}]}
-\end{frame}
-
-\begin{frame}{1. Intro: Qu'est ce que le \textit{Machine Learning}}
-  \begin{figure}
-    \includegraphics[width=0.6\textwidth]{fig/mlvsAI.png}
-  \end{figure}
-\end{frame}
-
-\begin{frame}{1. Intro: Qu'est ce que le \textit{Machine Learning}}
   \begin{itemize}
   \item Les principaux types d'apprentissage:
   \end{itemize}
@@ -45,7 +45,7 @@
     \item Utilise des données \textit{labélisées}
     \item La machine apprend par l'exemple
     \item \textit{Prédis} le résultat pour de nouveaux événements
-    \item Problèmes de régression et de classification
+    \item Problèmes de prédictions et de classification
     \item Regression linéaire et logistique
     \item Réseaux de Neurones
     \item Arbres de décisions
@@ -80,4 +80,14 @@
       \vspace{0.5cm}
     \end{beamerboxesrounded}
   \end{minipage}  
+\end{frame}
+
+\begin{frame}{À quelles problèmatiques répond le Machine Learning?}
+  \begin{itemize}
+  \item \textcolor{orangeAgaetis}{\textbf{Prédictions}} Prédire une valeur continue à partir de caractéristique données
+  \item \textcolor{orangeAgaetis}{\textbf{Projections}} Prédictions spécifique de séries temporelles: $y = f(y(t-1), y(t-2), \dots)$
+  \item \textcolor{orangeAgaetis}{\textbf{Classifications}} Prédire la classe (discret) d'un objet en fonction de ses caractéristiques
+  \item \textcolor{orangeAgaetis}{\textbf{Segmentations}} Regrouper des objets par similarité dans l'espace des variables utilisé
+  \item \textcolor{orangeAgaetis}{\textbf{Compréhensions}} Comprendre l'importance de variables d'intérêt dans un contexte donné
+  \end{itemize}
 \end{frame}

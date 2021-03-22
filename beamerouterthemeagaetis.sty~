@@ -1,0 +1,45 @@
+\mode<presentation>
+
+\newcommand\foottext{\textit{Agaetis 2020 \copyright \hspace{0.01cm} Reproduction et diffusion interdite sans autorisation préalable}}
+\newcommand\mylogo{\includegraphics[trim={0 0.5cm 0 0}, clip, height=0.6cm]{figs/logo-agaetis-hor-white-rgb.eps}}
+
+\makeatletter
+\setbeamertemplate{frametitle}{}
+\def\insertframetitle{}
+\setbeamertemplate{headline}{                  
+  \leavevmode%
+  \hbox{
+    \begin{beamercolorbox}[wd=1.1\paperwidth,ht=6ex,dp=2ex,leftskip=0.0cm, rightskip=0.0cm]{headlinecolor}%
+      \hspace{2cm}
+      \large
+      \insertframetitle
+  \end{beamercolorbox}}
+  \vskip0pt%
+}
+\makeatother
+
+\setbeamertemplate{footline}{                  
+  \leavevmode%
+  \hbox{
+    \begin{beamercolorbox}[wd=1.1\paperwidth,ht=5.5ex,dp=3ex,leftskip=0.0cm, rightskip=0.0cm]{footlinecolor}%
+    \end{beamercolorbox}}
+  \vskip-18.8pt%
+  \hbox{
+    \begin{beamercolorbox}[wd=0.1\paperwidth,ht=4ex,dp=3ex,leftskip=0.0cm, rightskip=0.0cm]{footlinecolor}%
+    \end{beamercolorbox}
+    \begin{beamercolorbox}[wd=0.8\paperwidth,ht=4ex,dp=3ex,leftskip=0.0cm, rightskip=0.0cm]{footlinecolor}%
+      \centering
+      \foottext
+    \end{beamercolorbox}
+    \begin{beamercolorbox}[wd=0.1\paperwidth,ht=4ex,dp=3ex,leftskip=0.0cm, rightskip=0.0cm]{footlinecolor}%
+      \centering
+      \insertframenumber
+    \end{beamercolorbox}
+  }%
+  \vskip0pt%
+  \begin{tikzpicture}
+    {\hspace{0.3cm} \mylogo};
+  \end{tikzpicture}
+}
+
+\mode<all>
