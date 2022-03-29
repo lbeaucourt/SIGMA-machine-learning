@@ -467,6 +467,21 @@
   \end{minipage}
 \end{frame}
 
+\begin{frame}{2.3 Mesurer la performance des algorithmes de classifications}
+  \begin{itemize}
+  \item Selon les problèmes, ils existent différentes métriques permettant de mesurer la performance d'un algorithme.
+    \begin{itemize}
+    \item Accuracy = $\frac{N_{correct\_pred}}{N_{items}}$
+    \item Precision (PPV) = $\frac{N_{True\_pos}}{N_{pred\_pos}}$
+    \item Recall (Sensitivity) = $\frac{N_{True\_pos}}{N_{real\_pos}}$
+    \item F1-Score =  $\frac{2*Precision*Recall}{Precision+Recall}$
+    \end{itemize}
+  \end{itemize}
+  \begin{figure}
+    \includegraphics[width=0.9\textwidth]{figs/classifier_metrics}
+  \end{figure}
+\end{frame}
+
 \begin{frame}{2.3 Les problèmes de biais et de variance}
   \begin{figure}
     \includegraphics[width=0.9\textwidth]{figs/theProblemOfOverfitting.png}
@@ -561,10 +576,11 @@
   \end{table}
 \end{frame}
 
-\begin{frame}{2.3 La régularisation}
+\begin{frame}{2.3 La régularisation: \textbf{RIDGE} (L2)}
   \begin{itemize}
-  \item Contraindre les paramètres $\theta_{j}$ sans réduire le nombre de variables
-  \item On ré-écrit la fonction de coût avec le \textcolor{blue}{terme de régularisation}:
+  \item Contraindre les paramètres $\theta_{j}$ afin d'éviter le \textit{sur-apprentissage} (\textit{overfitting})
+  \item Particulièrement efficace si les paramètres du problème présentent une covariance importante
+  \item On ré-écrit la fonction de coût en ajoutant un \textcolor{blue}{terme de régularisation}
   \end{itemize}
   \begin{equation*}
     J(\theta) = \frac{1}{2m}(\displaystyle\sum_{i=1}^{m}(h_{\theta}(x^{(i)}) - y^{(i)})^{2} + \textcolor{blue}{\lambda \displaystyle\sum_{j=1}^{n}\theta_{j}^{2}})
@@ -574,6 +590,54 @@
   \item Si $\lambda$ est trop grand: risque d'\textit{underfitting}
   \item Si $\lambda = 0$: pas de régularisation. 
   \item \textbf{Remarque:} On ne régularise pas le terme constant $\theta_{0}$
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{2.3 La régularisation: \textbf{LASSO} (L1)}
+  \begin{itemize}
+  \item Utile dans le cas où l'on souhaite éviter que des coefficients prennent une valeur nulle
+  \item Réduit le nombre de paramètre dominants dans la solution
+  \item On ré-écrit la fonction de coût en ajoutant un \textcolor{blue}{terme de régularisation}
+  \end{itemize}
+  \begin{equation*}
+    J(\theta) = \frac{1}{2m}(\displaystyle\sum_{i=1}^{m}(h_{\theta}(x^{(i)}) - y^{(i)})^{2} + \textcolor{blue}{\lambda \displaystyle\sum_{j=1}^{n}|\theta_{j}|})
+  \end{equation*}
+  \begin{itemize}
+  \item \boldmath $\lambda$: Paramètre de régularisation
+  \item Si $\lambda = 0$: pas de régularisation. 
+  \item \textbf{Remarque:} On ne régularise pas le terme constant $\theta_{0}$
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{2.3 La régularisation: \textbf{ELASTIC NET}}
+  \begin{itemize}
+  \item Combinaison des régularisation \textbf{RIDGE} et \textbf{LASSO}
+  \item Permets de combiner les avantages des deux types de régularisation
+  \item On ré-écrit la fonction de coût en ajoutant un \textcolor{blue}{terme de régularisation \textbf{LASSO}} et un \textcolor{red}{terme de régularisation \textbf{RIDGE}}
+  \end{itemize}
+  \begin{equation*}
+    J(\theta) = \frac{1}{2m}(\displaystyle\sum_{i=1}^{m}(h_{\theta}(x^{(i)}) - y^{(i)})^{2} + \textcolor{green}{\lambda}\textcolor{purple}{\rho}\textcolor{blue}{\displaystyle\sum_{j=1}^{n}|\theta_{j}|} + \frac{\textcolor{green}{\lambda}(1 - \textcolor{purple}{\rho})}{2}\textcolor{red}{\displaystyle\sum_{j=1}^{n}\theta_{j}^{2}}
+  \end{equation*}
+  \begin{itemize}
+  \item $\textcolor{green}{\lambda}$: Paramètre de régularisation
+  \item $\textcolor{purple}{\rho}$: \textit{l1\_ratio}, permet de contrôler la combinaison des régularisations L1 et L2
+    \begin{itemize}
+    \item Si $\textcolor{purple}{\rho} = 1$: \textit{Régularisation LASSO}
+    \item Si $\textcolor{purple}{\rho} = 0$: \textit{Régularisation RIDGE}
+    \end{itemize}
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{2.4 Autres algorithmes de régression}
+  \begin{itemize}
+  \item Ici, nous nous sommes restreints à la minimisation du carrés des erreurs (Least squares method) à l'aide d'une descente de gradient
+  \item Il existe d'autres outils permettant de traiter ces sujets, selon les caractéristiques du problèmes (corrélations, covariance, hétéroscédasticité, ...)
+    \begin{itemize}
+    \item Ordinary least squares: Estimation des paramètres par calcul matriciel: $\theta = (X^{T}X)^{-1}X^{T}y$
+    \item Régression Bayésienne: Les termes de régularisation sont estimés en mêmes temps que les paramètres
+    \item Maximisation de vraissemblance (Likelihood)
+    \item L-BFGS: Algorithme d'optimisation appartenant aux methodes quasi-Newton
+    \end{itemize}
   \end{itemize}
 \end{frame}
 
